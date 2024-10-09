@@ -26,14 +26,18 @@ pipeline {
 
         stage('Docker Build') {
             steps {
-                def app = docker.build("hunturek/weather-app", "weather-app")
+		script {
+                	def app = docker.build("hunturek/weather-app", "weather-app")
+		}
             }
         }
 
         stage('Save Docker Image') {
             steps {
-		app.tag("localhost:5000/weather-app")
-                app.push("localhost:5000/weather-app")
+		script {
+			app.tag("localhost:5000/weather-app")
+                	app.push("localhost:5000/weather-app")
+		}
             }
         }
 
