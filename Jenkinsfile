@@ -4,8 +4,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                // Клонирование репозитория из Git
-                git 'https://github.com/hunturek/weatherapp'
+                git branch: 'develop', url: 'https://github.com/hunturek/weatherapp.git'
             }
         }
 
