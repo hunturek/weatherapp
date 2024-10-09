@@ -27,9 +27,7 @@ pipeline {
 
         stage('Docker Build') {
             steps {
-                dir('weather-app') {
-					sh 'docker build -t hunturek/weather-app .'
-				}
+                sh 'docker build -t hunturek/weather-app .'
             }
         }
 
