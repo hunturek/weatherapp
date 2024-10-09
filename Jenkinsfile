@@ -8,36 +8,13 @@ pipeline {
             }
         }
 
-        stage('Build') {
-            steps {
-                dir('weather-app') {
-					sh 'mvn clean package'
-				}
-            }
-        }
-
-        stage('Test') {
-            steps {
-                dir('weather-app') {
-					sh 'mvn test'
-				}
-            }
-        }
-
         stage('Docker Build') {
             steps {
-		script {
-                	def app = docker.build("hunturek/weather-app", "weather-app")
-		}
-            }
-        }
-
-        stage('Save Docker Image') {
-            steps {
-		script {
-			app.tag("localhost:5000/weather-app")
-                	app.push("localhost:5000/weather-app")
-		}
+                script {
+                    // Соберите образ и запустите его
+                    def app = docker.build("hunturek/weather-app", "weather-app")
+                    app.push("localhost:5000/weather-app")
+                }
             }
         }
 
