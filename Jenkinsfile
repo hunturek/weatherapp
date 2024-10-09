@@ -33,6 +33,7 @@ pipeline {
 
         stage('Save Docker Image') {
             steps {
+		sh 'docker tag weather-app localhost:5000/weather-app'
                 docker save -o weather-app.tar localhost:5000/weather-app
             }
         }
@@ -41,6 +42,7 @@ pipeline {
             steps {
                 sh 'kubectl apply -f k8s/deployment.yaml'
                 sh 'kubectl apply -f k8s/service.yaml'
+		sh 'kubectl apply -f k8s/ingress.yaml'
             }
         }
     }
