@@ -15,4 +15,4 @@ WORKDIR /app
 
 COPY --from=builder /app/target/weather-app-1.0-SNAPSHOT.jar .
 
-ENTRYPOINT ["java", "-jar", "weather-app.jar"]
+ENTRYPOINT ["java", "-jar", "weather-app-1.0-SNAPSHOT.jar"]
