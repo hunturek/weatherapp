@@ -34,7 +34,7 @@ pipeline {
         stage('Save Docker Image') {
             steps {
 		sh 'docker tag weather-app localhost:5000/weather-app'
-                docker save -o weather-app.tar localhost:5000/weather-app
+                sh 'docker save -o weather-app.tar localhost:5000/weather-app'
             }
         }
 
