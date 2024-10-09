@@ -13,6 +13,6 @@ FROM openjdk:17-jdk-slim
 
 WORKDIR /app
 
-COPY --from=builder /app/target/weather-app.jar .
+COPY --from=builder /app/target/weather-app-1.0-SNAPSHOT.jar .
 
 ENTRYPOINT ["java", "-jar", "weather-app.jar"]
