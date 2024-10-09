@@ -7,6 +7,8 @@ COPY src ./src
 
 RUN mvn clean package
 
+RUN mvn clean package && ls -la target
+
 FROM openjdk:17-jdk-slim
 
 WORKDIR /app
