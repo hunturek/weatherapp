@@ -7,11 +7,11 @@ COPY src ./src
 
 RUN mvn clean package
 
-RUN mvn clean package && ls -la target
-
 FROM openjdk:17-jdk-slim
 
 WORKDIR /app
+
+RUN apt-get update && apt-get install -y curl && rm -rf /var/lib/apt/lists/*
 
 COPY --from=builder /app/target/weather-app-1.0-SNAPSHOT.jar .
 
