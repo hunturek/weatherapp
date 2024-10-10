@@ -19,7 +19,7 @@ public class App {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         System.out.print("Введите город: ");
-        String city = scanner.nextLine();
+        String city = "Moscow";
         
         String url = BASE_URL + "?q=" + city + "&appid=" + API_KEY + "&units=metric";
 		System.out.println("Запрос: " + url);
