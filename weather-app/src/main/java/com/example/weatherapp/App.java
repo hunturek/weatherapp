@@ -18,11 +18,10 @@ public class App {
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        System.out.print("Введите город: ");
         String city = "Moscow";
         
         String url = BASE_URL + "?q=" + city + "&appid=" + API_KEY + "&units=metric";
-		System.out.println("Запрос: " + url);
+	System.out.println("Запрос: " + url);
 
         try (CloseableHttpClient httpClient = HttpClients.createDefault()) {
             HttpGet request = new HttpGet(url);
