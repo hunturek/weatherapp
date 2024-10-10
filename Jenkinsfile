@@ -11,9 +11,8 @@ pipeline {
         stage('Docker Build') {
             steps {
                 script {
-                    	def app = docker.build("hunturek/weather-app", "weather-app/.")
-			sh 'docker tag hunturek/weather-app localhost:5000/weather-app'
-                    	sh 'docker push localhost:5000/weather-app'
+                    	def app = docker.build("weather-app", "weather-app/.")
+			sh 'docker tag weather-app hunturek/weather-app'
                 }
             }
         }
